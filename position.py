@@ -158,7 +158,7 @@ class Position:
             obs_time[2] = int((line[7:9]).strip())
             obs_time[3] = int((line[10:12]).strip())
             obs_time[4] = int((line[13:15]).strip())
-            obs_time[5] = int((line[17:29]).strip())
+            obs_time[5] = int((line[16:18]).strip())
 
             # 读取本历元观测到的卫星数
             num_sat = int(line[30:32])
