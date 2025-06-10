@@ -82,11 +82,11 @@ class ReadFile:
     @staticmethod
     def PreprocessOFile(lines):
         ApproxPosComment = "APPROX POSITION XYZ"
-        for i, line in enumerate(lines, start=1):
+        for i, line in enumerate(lines):
             if ApproxPosComment in line:
                 approx_x = float(line[0:15].strip())
                 approx_y = float(line[15:28].strip())
-                approx_z = float(line[29:42].strip())
+                approx_z = float(line[29:43].strip())
                 ReadFile.ApproxPos.append(approx_x)
                 ReadFile.ApproxPos.append(approx_y)
                 ReadFile.ApproxPos.append(approx_z)
