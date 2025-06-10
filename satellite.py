@@ -89,7 +89,7 @@ def calculate_pos_of_sat(matrix, ClockCorrect, ObsTime, RefTime):
     delta_i = matrix[2, 1] * np.cos(2 * phi_vk) + matrix[2, 3] * np.sin(2 * phi_vk)    # 轨道倾角改正项
     uk = phi_vk + delta_u   # 升交点角距
     rk = a * (1 - matrix[1, 1] * np.cos(Ek)) + delta_r    # 轨道半径
-    ik = matrix[3, 0] + delta_t + matrix[4, 0] * tk    # 轨道倾角
+    ik = matrix[3, 0] + delta_i + matrix[4, 0] * tk    # 轨道倾角
 
     # 计算轨道平面下的坐标
     xk = rk * np.cos(uk)
