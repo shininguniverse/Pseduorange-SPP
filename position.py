@@ -190,7 +190,7 @@ class Position:
                 Pseudorange = [None] * 4
                 Pseudorange[0] = line[34:46].strip()
                 Pseudorange[1] = line[50:62].strip()
-                Pseudorange[2] = line[54:66].strip()
+                Pseudorange[2] = line[64:66].strip()
                 Pseudorange[3] = line[70:].strip()
                 for i in range(4):
                     if Pseudorange[i] == "":
@@ -285,7 +285,7 @@ class Position:
                 if not P2_obs == 0:
                     Pc = (Gamma * P1_obs - P2_obs) / (Gamma - 1.0)  # 双频改正
                 else:
-                    P1_P2 = (1.0 - Gamma) * satellite.SatelliteObservation[2, 5]  # 单频改正
+                    P1_P2 = (1.0 - Gamma) * satellite.SatelliteObservation[5, 2]  # 单频改正
                     Pc = P1_obs - P1_P2 * (1.0 - Gamma)
                 M_ObsPseudorange.append(Pc)  # 将初步改正后的伪距存入
 
