@@ -118,11 +118,11 @@ def SolutionLeastSquares(ObsPseudorange, SatelliteXYZ, ApproxPos):
         PosXYZ = np.array(ApproxPos)
         print(
             "平差后的X坐标:",
-            PosXYZ[0] + x[0],
+            PosXYZ[0],
             "平差后的Y坐标:",
-            PosXYZ[1] + x[1],
+            PosXYZ[1],
             "平差后的Z坐标:",
-            PosXYZ[2] + x[2],
+            PosXYZ[2],
         )
     return 1
 
@@ -158,7 +158,7 @@ class Position:
             obs_time[2] = int((line[7:9]).strip())
             obs_time[3] = int((line[10:12]).strip())
             obs_time[4] = int((line[13:15]).strip())
-            obs_time[5] = int((line[17:18]).strip())
+            obs_time[5] = int((line[17:19]).strip())
 
             # 读取本历元观测到的卫星数
             num_sat = int(line[30:32])
@@ -272,6 +272,9 @@ class Position:
                 elif not C1 == 0:
                     P1_obs = C1
                 else:
+                    TemXYZ = [0, 0, 0, 0, 0]
+                    SatelliteXYZ.append(TemXYZ)
+                    M_ObsPseudorange.append(0.0)
                     continue  # 缺失L1观测直接放弃本星
                 if not P2 == 0:
                     P2_obs = P2
